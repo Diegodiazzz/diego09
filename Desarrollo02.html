@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo 02</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script>
+    function Calculo()
+    {
+        let categoria=document.getElementById('categorias').value;
+    let Saldobruto=0;
+    let totalhij=document.getElementById('cantidadhi').value;
+    let bonificacion=0;
+    let numerohij=0;
+    let condi=document.getElementById('Condicion').value;
+    let laboral=0
+    let total=0;
+
+    if(categoria=="A"){
+        Saldobruto=2350
+    }
+    if(categoria=="B"){
+        Saldobruto=2000
+    }
+    if(categoria=="C"){
+        Saldobruto=1850
+    }
+    if(categoria=="D"){
+        Saldobruto=1500
+    }
+    
+    if(totalhij>3){
+        numerohij=totalhij-3;
+        bonificacion=numerohij*10+75;
+    }
+    if(totalhij<=3){
+        bonificacion=totalhij*25;
+    }
+
+    if(condi=="C"){
+        laboral=((Saldobruto/100)*10)
+    }
+    if(condi=="N"){
+        laboral=((Saldobruto/100)*15)
+    }
+    total=Saldobruto+bonificacion+laboral
+    document.curso.sueldo.value=total;
+    }
+   
+    
+    </script>
+</head>
+<body>
+    <h1>Desarrollo 02</h1>
+    <p><a href="index.html">Regresar al principio</a></p>
+   
+
+    <br>
+    <form action="" name="curso">
+        <table border="1" align="center">
+            <tr>
+                <td></td>
+                <td>Las categorias A/B/C/D</td>
+            </tr>
+            <tr>
+                <td>Categoria:</td>
+                <td><input type="text" id="categorias" name="categorias"></td>
+            </tr>
+            <tr>
+                <td>Numero de hijos:</td>
+                <td><input type="number" id="cantidadhi" name="cantidadhi"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Si es contratado escribir "C" <br>y si es nombrado escrib "N"</td>
+            </tr>
+            <tr>
+                <td>Condicion laboral: </td>
+                <td><input type="text" id="Condicion" name="Condicion"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="button" name="cacu" id="cacu" value="Calcular" onclick="Calculo()"></td>
+            </tr>
+            <tr>
+                <td>Sueldo:</td>
+                <td><input type="number" name="sueldo" id="sueldo" readonly="true"></td>
+            </tr>
+        </table>
+    </form>
+
+
+    
+</body>
+</html>
